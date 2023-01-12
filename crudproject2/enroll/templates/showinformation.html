@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class=" col-sm-12 ">
+    <h4 class="alert alert-dark text-center">Show Informantion</h4>
+    {% if stu %}
+    <table class='table table-hover text-center shadow p-3'>
+        <thead>
+            <tr>
+                <th scope='col'>Id</th>
+                <th scope='col'>Name</th>
+                <th scope='col'>Email</th>
+                <th scope='col'>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for st in stu %}
+            <tr>
+                <th scope='row'>{{st.id}}</th>
+                <td>{{st.name}}</td>
+                <td>{{st.email}}</td>
+                <td>
+                    <a href="{% url 'updatedata' st.id %}" class="btn btn-warning">Edit</a>
+                    <form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline">{% csrf_token %} 
+                    <input type="submit" class="btn btn-danger" value='Delete'>                    </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+    </table>
+    {% else %}
+    <h4 class="text-center alert alert-warning">No Record</h4>
+    {% endif %}
+    <div class="text-center">
+        <a href="{% url 'adddata' %}" class="btn btn-success "> Back to home </a>
+    </div>
+</div>
+{% endblock content %}
+

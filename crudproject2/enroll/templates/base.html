@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <title>CRUD_PROJECT</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h2 class="text-center alert alert-light bg-dark ">ADD, SHOW and UPDATE Information</h2>
+            {% block content %}
+            
+            {% endblock content %}
+        </div>
+
+
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/proper.js' %}"></script>
+    </body>
+</html>
